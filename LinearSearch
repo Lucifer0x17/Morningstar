@@ -1,0 +1,75 @@
+# include <iostream>
+# include <conio.h>
+
+using namespace std;
+
+
+void lsearch(int a[],int n,int x,int &pos)
+{for(int i=0;i<n;i++)
+ {if(a[i]==x)
+  {pos=i;
+   break;
+   }
+  }
+ }
+void display(int a[],int n)
+{for(int i=0;i<n;i++)
+cout<<a[i]<<' ';}
+void bsearch(int a[], int n, int x,int &pos)
+{int lb=0,ub=n-1,mid;
+while(lb<=ub && pos<=0)
+{mid=(lb+ub)/2;
+if(a[mid]==x)
+pos=mid;
+else if(a[mid]>x)
+ub=mid-1;
+else
+lb=mid+1;
+}
+}
+
+void bsort(int a[],int n)
+{int i,j,temp;
+for(i=0;i<n-1;i++)
+{
+for(j=0;j<n-1;j++)
+if(a[j]>a[j+1])
+{temp=a[j];
+a[j]=a[j+1];
+a[j+1]=temp;
+}
+}
+}
+
+int main()
+{
+
+int a[200],n,x,pos=-1,k=1;
+char q;
+cout<<"Welcome to element search programme"<<'\n'<<'\n'<<"Enter size of an array: ";
+cin>>n;
+cout<<"Enter array: ";
+for(int i=0;i<n;i++)
+cin>>a[i];
+display(a,n);
+cout<<'\n'<<"Enter element to be searched: ";
+cin>>x;
+cout<<"Select type of search to be performed"<<'\n'<<'\n'<<"Enter L to use linear search or B to use binary search... ";
+cin>>q;
+if(q=='L'|| q=='l')
+lsearch(a,n,x,pos);
+else
+if(q=='B'|| q=='b')
+{bsort(a,n);
+cout<<"Sorted array: ";
+display(a,n);
+bsearch(a,n,x,pos);
+}
+else
+{cout<<"Invalid selection";
+k=0;}
+if(pos>=0 && k!=0)
+cout<<"Location of element: "<<pos+1;
+getch();
+return 0;
+}
