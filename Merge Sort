@@ -1,0 +1,64 @@
+# include <iostream>
+# include <conio.h>
+
+
+using namespace std;
+
+
+
+void ins_sort(int a[],int n)
+{int temp,i,j;
+for(i=1;i<n;i++)
+ {temp=a[i];
+  j=i-1;
+  while(j>=0&&temp<a[j])
+  {a[j+1]=a[j];
+  j--;
+  }a[j+1]=temp;
+ }
+}
+void display(int a[],int n)
+{for(int i=0;i<n;i++)
+cout<<a[i]<<' ';}
+
+void msort(int a[],int m,int b[],int n,int c[])
+{int i=0,j=0,x=0;
+for(;i<m&&j<n;)
+{if(a[i]<b[j])
+c[x++]=a[i++];
+else
+c[x++]=b[j++];
+}while(i<m)
+c[x++]=a[i++];
+while(j<n)
+c[x++]=b[j++];
+}
+
+int main()
+{
+int a[200],m,b[200],n,c[200],k;
+cout<<"Welcome to array merging program"<<'\n'<<'\n';
+cout<<"Enter size of first array: ";
+cin>>m;
+cout<<"Enter first array: ";
+for(int i=0;i<m;i++)
+cin>>a[i];
+cout<<"Enter size of second array: ";
+cin>>n;
+cout<<"Enter second array: ";
+for(int j=0;j<n;j++)
+cin>>b[j];
+ins_sort(a,n);
+ins_sort(b,m);
+cout<<"Sorted arrays: ";
+display(a,m);
+cout<<'\n';
+display(b,n);
+cout<<'\n';
+msort(a,m,b,n,c);
+k=(m+n);
+cout<<"Merged array: ";
+display(c,k);
+getch();
+return 0;
+}
