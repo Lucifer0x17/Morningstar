@@ -1,0 +1,1 @@
+simple api using html css and js
