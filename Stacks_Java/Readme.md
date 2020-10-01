@@ -1,0 +1,1 @@
+In this I have added the data structure Stacks in which I have performed basic operations like insertion, deletion and many more storing the linked list using arrays and linked lists.
