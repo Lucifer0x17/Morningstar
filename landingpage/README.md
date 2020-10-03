@@ -1,0 +1,1 @@
+A Landing page using Html CSS,implenting blur effect.
